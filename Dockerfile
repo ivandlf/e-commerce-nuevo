@@ -1,5 +1,5 @@
-# Selecciona una imagen base con OpenJDK 17
-FROM openjdk:17-alpine AS build
+# Utiliza una imagen base con OpenJDK 17 y Maven
+FROM adoptopenjdk/openjdk17:latest AS build
 
 # Instala Maven
 RUN apt-get update && apt-get install -y maven
