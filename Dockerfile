@@ -1,9 +1,6 @@
 # Utiliza una imagen base con OpenJDK 17 y Maven
 FROM adoptopenjdk/openjdk17:latest AS build
 
-# Instala Maven
-RUN apt-get update && apt-get install -y maven
-
 # Establecer un directorio de trabajo
 WORKDIR /app
 
