@@ -1,5 +1,5 @@
 # Selecciona una imagen base con OpenJDK 17
-FROM adoptopenjdk/openjdk17:latest AS build
+FROM openjdk:17-alpine AS build
 
 # Instala Maven
 RUN apt-get update && apt-get install -y maven
@@ -15,7 +15,8 @@ COPY pom.xml /app/pom.xml
 RUN mvn clean package
 
 # Utiliza una imagen base con OpenJDK 17
-FROM adoptopenjdk/openjdk17:latest
+FROM openjdk:17-alpine AS build
+
 
 # Exponer el puerto que utilizará la aplicación
 EXPOSE 8080
