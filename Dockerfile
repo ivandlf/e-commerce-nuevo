@@ -18,7 +18,7 @@ FROM openjdk:17-alpine
 EXPOSE 8080
 
 # Copiar el archivo JAR construido desde la etapa anterior
-COPY --from=build /app/target/e-commerce-0.0.1-SNAPSHOT.war /app/e-commerce-0.0.1-SNAPSHOT.war
+COPY --from=build C:/Users/ivand/proyectos Java/e-commerce-master/target/e-commerce-0.0.1-SNAPSHOT.war /app/e-commerce-0.0.1-SNAPSHOT.war/
 
 # Establecer el punto de entrada para ejecutar la aplicación
 ENTRYPOINT ["java", "-jar", "/app/e-commerce-0.0.1-SNAPSHOT.war"]
