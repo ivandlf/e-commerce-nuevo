@@ -1,5 +1,6 @@
-# Utiliza una imagen base con OpenJDK 17 y Maven
-FROM adoptopenjdk/openjdk17:latest AS build
+# Selecciona una imagen base con OpenJDK 17
+FROM openjdk:17-alpine AS build
+
 
 # Establecer un directorio de trabajo
 WORKDIR /app
