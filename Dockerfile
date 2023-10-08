@@ -15,7 +15,7 @@ COPY pom.xml /app/pom.xml
 RUN mvn clean package
 
 # Utiliza una imagen base con OpenJDK 17
-FROM openjdk:17-alpine AS build
+FROM openjdk:17-alpine
 
 
 # Exponer el puerto que utilizará la aplicación
