@@ -1,17 +1,21 @@
-# Usar una imagen base con JDK 11 y Maven
-FROM maven:3.8.4-openjdk-11 AS build
+# Selecciona una imagen base con OpenJDK 17
+FROM adoptopenjdk/openjdk17:latest AS build
+
+# Instala Maven
+RUN apt-get update && apt-get install -y maven
 
 # Establecer un directorio de trabajo
 WORKDIR /app
 
-# Copiar archivos de tu proyecto al directorio de trabajo
-COPY . /app
+# Copia tu código fuente y el archivo pom.xml al contenedor
+COPY src /app/src
+COPY pom.xml /app/pom.xml
 
 # Ejecutar Maven para construir el proyecto
 RUN mvn clean package
 
-# Crear una nueva imagen basada en OpenJDK 11
-FROM openjdk:11-jre-slim-buster
+# Utiliza una imagen base con OpenJDK 17
+FROM adoptopenjdk/openjdk17:latest
 
 # Exponer el puerto que utilizará la aplicación
 EXPOSE 8080
